@@ -34,7 +34,7 @@ MindConnect is a digital mental health platform focused on Kenyan youth aged 18�
 - Julius Mwakachi – Frontend Engineer
 
 ---
-## 🛠 MindConnect MVP Sprint Plan (June 2025)
+## 🛠 MindConnect MVP Sprint Plan (July 2025)
 
 | Task | Branch | Assigned To | Role |
 |------|--------|-------------|------|
