@@ -1,0 +1,6 @@
+/* App.module.css — Optional if you want scoped styles */
+.container {
+  padding: 2rem;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+}
