@@ -6,4 +6,4 @@ const authorizeRoles = (...allowedRoles) => {
         next();
     }
 }
-module.exports = authorizeRoles;
+export default authorizeRoles;

@@ -1,6 +1,6 @@
-const express = require("express");
-const verifyToken = require("../middlewares/authMiddleware");
-const authorizeRoles = require("../middlewares/roleMiddleware");
+import express from "express";
+import verifyToken from "../middlewares/authMiddleware.js";
+import authorizeRoles from "../middlewares/roleMiddleware.js";
 
 const router = express.Router();
 
@@ -20,4 +20,4 @@ router.get("/peerCounselor", verifyToken, authorizeRoles("admin", "peerCounselor
 router.get("/user", verifyToken, authorizeRoles("admin", "therapist", "peerCounselor","user"), (req, res) => {
     res.json({message: "welcome user"});
 });
-module.exports = router;
+export default router;

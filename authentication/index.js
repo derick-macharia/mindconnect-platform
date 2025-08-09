@@ -1,8 +1,9 @@
-const express = require("express");
-const dotenv = require("dotenv").config();
-const dbConnect = require("./config/dbConnect.js");
-const authRoutes = require("./routes/authRoutes.js");
-const userRoutes = require("./routes/userRoutes.js");
+import express from "express";
+import dotenv from "dotenv";
+import dbConnect from "./config/dbConnect.js";
+import authRoutes from "./routes/authRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+dotenv.config();
 
 dbConnect();
 
@@ -17,6 +18,6 @@ app.use("/api/users", userRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 7002;
-app.listen(PORT, () => {
+app.listen(PORT , () => {
     console.log(`Server is running at port ${PORT}`);
 });

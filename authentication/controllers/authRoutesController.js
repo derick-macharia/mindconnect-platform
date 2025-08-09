@@ -1,22 +1,22 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/userModel");
+import bcrypt from "bcryptjs";
+import jsonwebtoken from "jsonwebtoken";
+import User from "../models/userModel.js"
 
-const register = async (req, res) => {
+export async function register(req, res){
     try {
         const {username, email, password, role} = req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const newUser = new User({username, email, password:hashedPassword, role});
         await newUser.save();
-        res.status(201).json({message: `Successfy reisterd ${username} as ${role}`});
+        res.status(201).json({message: `Successfy registerd ${username} as ${role}`});
     } catch (error) {
         console.error(error);
         res.status(500).send("Internal server error");
     }
 };
 
-const login = async (req, res) => {
+export async function login(req, res) {
     try {
         const {username, password} = req.body;
         const user = await User.findOne({username});
@@ -40,7 +40,4 @@ const login = async (req, res) => {
         res.status(500).json({message: `Internal Server Erroe`});
     }
 }
-module.exports = {
-    register,
-    login,
-}
+
