@@ -1,27 +1,40 @@
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    username: {
+    fullName: {
         type: String,
-        required: true,
-        unique: true,
+        required: true
     },
     email: {
         type: String,
         required: true,
-        unique: true,
+        unique: true
     },
+    phone: String,
+    age: Number,
+    gender: String,
     password: {
         type: String,
-        required: true,
+        required: true
     },
     role: {
         type: String,
-        required: true,
-        enum: ["admin", "therapist", "peerCounselor", "user",]
+        enum: ['user', 'therapist', 'peer'],
+        default: 'user'
     },
-}, {
-    timestamps: true,
+    preferredLanguage: String,
+    remindersEnabled:{
+        type: Boolean,
+        default: true
+    },
+    reminderChannels: [String],
+    subscription: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Subscription'
+    },
+},
+  {
+        timestamps: true,
 });
 const User = mongoose.model("User", userSchema);
 export default User;
