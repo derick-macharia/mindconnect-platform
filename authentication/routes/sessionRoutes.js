@@ -16,7 +16,7 @@ router.post("/", auth, role("user"), async (req, res) => {
     } catch (error) {
         res.status(500).json({error: error.message});
     }
-});
+}); 
 
 // Get session for a loggedin user
 router.get("/me", auth, async (req, res) => {
