@@ -1,19 +1,24 @@
 import mongoose from "mongoose";
 
 const aiMessageSchema = new mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    role: {
-        type: String,
-        enum: ['user', 'ai']
-    },
-    content: String,
-    timestamp: {
-        type: Date,
-        default: Date.now
-    }
+userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+},
+role: {
+    type: String,
+    enum: ["user", "ai"],
+    required: true
+},
+message: {
+    type: String,
+    required: true
+},
+createdAt: {
+    type: Date,
+    default: Date.now
+}
 });
-const AIMessage = mongoose.model("AIMessage", aiMessageSchema);
-export default AIMessage;
+const AiMessage = mongoose.model("AiMessage", aiMessageSchema);
+export default AiMessage;

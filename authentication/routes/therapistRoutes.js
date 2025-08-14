@@ -1,14 +1,14 @@
 import express from "express";
 import Therapist from "../models/therapistModel.js";
 import auth from "../middlewares/authMiddleware.js";
-import authorizeRoles from "../middlewares/roleMiddleware.js";
+import role from "../middlewares/roleMiddleware.js";
 
 const router = express.Router();
 
 //Get therapist profile
-router.get("/me", auth, role("therapist"), async(requestAnimationFrame, res) => {
+router.get("/me", auth, role("therapist"), async(req, res) => {
   try {
-    const therapist = await Therapist.findOne({user: requestAnimationFrame.user.userId}).populate("user", "-password");
+    const therapist = await Therapist.findOne({user: req.user.userId}).populate("user", "-password");
     if (!therapist) {
         return res.status(404).json({message: "Therapist profile not found"});
     }else{

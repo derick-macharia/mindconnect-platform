@@ -2,8 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 import dbConnect from "./config/dbConnect.js";
 import authRoutes from "./routes/authRoutes.js";
-import therapistRoutes from "./routes/therapistRoutes.js"
-import sessionRoutes from "./routes/sessionRoutes.js"
+import therapistRoutes from "./routes/therapistRoutes.js";
+import sessionRoutes from "./routes/sessionRoutes.js";
+import eventRoutes from "./routes/eventRoutes.js";
+import nuggetRoutes from "./routes/nuggetRoutes.js";
+import reminderRoutes from "./routes/nuggetRoutes.js";
+import subscriptionRoutes from "./routes/subscriptionRoutes.js";
 
 dotenv.config();
 
@@ -18,6 +22,10 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/therapist", therapistRoutes);
 app.use("/api/sessions", sessionRoutes);
+app.use("/api/events", eventRoutes);
+app.use("/api/nuggets", nuggetRoutes);
+app.use("/api/reminders", reminderRoutes);
+app.use("/api/subscriptions", subscriptionRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 7002;
