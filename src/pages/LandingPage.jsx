@@ -31,7 +31,7 @@ const LandingPage = () => (
           <Link to="/dashboard">
             <Button className="bg-teal hover:bg-teal-dark text-white">Get Help Now</Button>
           </Link>
-          <Button variant="outline" className="border-white text-white hover:bg-white hover:text-foreground">Learn More</Button>
+          <Button variant="outline" className="border-white text-white hover:bg-teal-dark transition-colors">Learn More</Button>
         </div>
       </div>
     </section>
@@ -59,7 +59,7 @@ const LandingPage = () => (
             <img src={therapist.image} alt={therapist.name} className="w-25 h-25 rounded-full mx-auto mb-4 object-cover" />
             <h4 className="text-lg font-semibold mb-2">{therapist.name}</h4>
             <p className="text-muted-foreground mb-4">{therapist.specialty}</p>
-            <Button className="bg-accent hover:bg-accent/80 text-foreground font-semibold">Book Now</Button>
+            <Button className="bg-accent hover:bg-teal/80 text-foreground font-semibold">Book Now</Button>
           </div>
         ))}
       </div>
@@ -70,7 +70,7 @@ const LandingPage = () => (
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
         <p className="text-lg text-foreground">You're not alone. Let's walk this path together</p>
         <Link to="/dashboard">
-          <Button className="bg-teal hover:bg-teal-dark text-white">Get Started Today</Button>
+          <Button className="bg-[#2563EB] hover:bg-teal-dark text-white">Get Started Today</Button>
         </Link>
       </div>
     </section>

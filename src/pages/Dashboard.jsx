@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { MessageCircle, BookOpen, Clock, Lightbulb, Users, User, X } from "lucide-react";
+import { useAuth } from "../context/Auth"; // Make sure this is included
 
 const features = [
   { title: "AI Therapist", description: "24/7 AI Conversation support", icon: MessageCircle, href: "/therapist" },
@@ -12,18 +13,22 @@ const features = [
 ];
 
 const Dashboard = () => {
+  const { user } = useAuth();
   const [showNugget, setShowNugget] = useState(true);
+
 
   return (
     <div className="min-h-screen bg-muted p-5">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-secondary p-8 border border-border rounded-lg">
+        <p className="font-semibold text-sm text-muted-teal italic mb-2">
+          <strong className="not-italic">M;ndConnect:</strong> <span className="italic">st;ll here</span>
+        </p>
+        <div className="bg-[#0D98BA]/10 backdrop-blur-md p-8 border border-border rounded-lg">
 
           {/* Profile Header */}
           <div className="flex justify-between items-center mb-8">
-            <h1 className="flex items-center gap-4 text-3xl font-bold">
-              <span>Hello, Derick</span>
-              <span className="text-2xl">👋</span>
+            <h1 className="text-3xl font-bold">
+              Hello, {user?.name || 'Friend'} 👋
             </h1>
             <img
               src="/images/derick-profile.png"
@@ -40,12 +45,12 @@ const Dashboard = () => {
                 <Link
                   key={index}
                   to={feature.href}
-                  className="block bg-card p-5 rounded-lg text-center no-underline text-teal shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1 group"
+                  className="block bg-white p-6 rounded-lg text-center shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-1 group"
                 >
                   <div className="mb-3">
-                    <Icon className="w-8 h-8 mx-auto text-foreground group-hover:text-primary transition-colors" />
+                    <Icon className="w-8 h-8 mx-auto text-foreground group-hover:text-[#2563EB] transition-colors" />
                   </div>
-                  <h3 className="text-base font-semibold text-card-foreground mb-1">{feature.title}</h3>
+                  <h3 className="text-base font-semibold text-teal mb-1">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground m-0">{feature.description}</p>
                 </Link>
               );
@@ -54,8 +59,8 @@ const Dashboard = () => {
 
           {/* Today's Nugget */}
           {showNugget && (
-            <div className="flex items-center justify-between bg-nugget-yellow mt-8 px-5 py-4 rounded-lg text-foreground">
-              <span className="mr-3">💡</span>
+            <div className="flex items-center justify-between bg-accent mt-8 px-5 py-4 rounded-lg font-semibold text-card-foreground">
+              <Lightbulb className="text-[#2563EB] w-6 h-6 mr-3 animate-pulse" />
               <span className="flex-1 ml-3 text-sm">
                 <strong>Today's Nugget</strong>: You're allowed to rest
               </span>

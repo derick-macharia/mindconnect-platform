@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 bg-background z-50 relative shadow-md px-6 py-4 flex justify-between items-center px-8 py-4 z-50 border-b">
       <Link to="/" className="flex items-center">
         <img src="/images/logo.png" alt="MindConnect Logo" className="h-10 mr-2" />
-        <span className="text-2xl font-bold text-teal font-nunito">MindConnect</span>
+        <span className="text-2xl font-bold text-foreground font-nunito">MindConnect</span>
       </Link>
 
       <button className="md:hidden text-teal text-2xl" onClick={toggleMenu}>

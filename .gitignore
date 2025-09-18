@@ -1,6 +1,35 @@
-node_modules
-dist
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment variables
 .env
+.env.local
+
+# System files
 .DS_Store
+Thumbs.db
+
+# Logs
 *.log
-.vscode
+
+# Editor settings
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# OS-specific
+*.swp
+*.swo
+
+# Optional: SQLite or local DBs
+*.sqlite
+
+# Optional: Exported assets or backups
+*.zip
+*.tar.gz
