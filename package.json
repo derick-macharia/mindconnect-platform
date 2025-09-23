@@ -1,0 +1,30 @@
+{
+  "name": "mindconnect-platform",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "An inclusive mental health support platform for Kenyan youth—offering therapy, peer counselling, AI guidance, and educational resources to promote mental wellness, awareness, and healing.\r # MindConnect 🌱",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon authentication/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derick-macharia/mindconnect-platform.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derick-macharia/mindconnect-platform/issues"
+  },
+  "homepage": "https://github.com/derick-macharia/mindconnect-platform#readme",
+  "dependencies": {
+    "axios": "^1.11.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.4",
+    "nodemon": "^3.1.10"
+  }
+}
